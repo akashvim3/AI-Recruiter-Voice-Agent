@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Interview Reminder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .content {
+            padding: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .footer {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Interview Reminder</h1>
+    </div>
+    <div class="content">
+        <p>Hello {{ candidate_name }},</p>
+        
+        <p>This is a reminder that you have an interview scheduled for the position of <strong>{{ job_title }}</strong>.</p>
+        
+        <h2>Interview Details:</h2>
+        <ul>
+            <li><strong>Date:</strong> {{ scheduled_date|date:"F j, Y" }}</li>
+            <li><strong>Time:</strong> {{ scheduled_date|time:"g:i A" }}</li>
+            <li><strong>Duration:</strong> {{ duration }} minutes</li>
+            <li><strong>Type:</strong> {{ interview_type }}</li>
+            <li><strong>Interviewer:</strong> {{ interviewer_name }}</li>
+        </ul>
+
+        {% if meeting_link %}
+        <p>Meeting Link: <a href="{{ meeting_link }}">{{ meeting_link }}</a></p>
+        {% endif %}
+
+        <p>Please make sure to:</p>
+        <ul>
+            <li>Join the interview 5 minutes before the scheduled time</li>
+            <li>Have a stable internet connection</li>
+            <li>Test your audio and video equipment</li>
+            <li>Have your resume and any relevant documents ready</li>
+        </ul>
+
+        <p>If you need to reschedule or have any questions, please contact us immediately.</p>
+
+        <p>Best regards,<br>The Recruiter Team</p>
+    </div>
+    <div class="footer">
+        <p>This is an automated message. Please do not reply to this email.</p>
+    </div>
+</body>
+</html> 
